@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Cookies from 'js-cookie'
+import axios from 'axios'
 // import api from './api/Index'
 function Home(props) {
   // console.log(props.repositorios);
@@ -58,19 +59,20 @@ function Home(props) {
   )
 }
 
-export async function getServerSideProps({ req }) {
+// export async function getServerSideProps({ req }) {
+  export async function getStaticProps() {
   const usuarioGitHub = 'madsonalan'
 
-  const res = await fetch(`https://api.github.com/users/${usuarioGitHub}`)
-  const githubData = await res.json()
+  const res = await axios.get(`https://api.github.com/users/${usuarioGitHub}`)
+  const githubData = await res.data
 
   if (!githubData) {
     return {
       notFound: true,
     }
   }
-  const rep = await fetch(`https://api.github.com/users/${usuarioGitHub}/repos`)
-  const dataRepos = await rep.json()
+  const rep = await axios.get(`https://api.github.com/users/${usuarioGitHub}/repos`)
+  const dataRepos = await rep.data
 
   let langProj = []
   dataRepos.map((projeto) => {
@@ -81,7 +83,7 @@ export async function getServerSideProps({ req }) {
     props: {
       usuario: githubData,
       repositorios: dataRepos,
-      linguagens:linguagens
+      linguagens:linguagens,
     }, // will be passed to the page component as props
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
