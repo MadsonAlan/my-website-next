@@ -7,8 +7,13 @@ ou
     Além do fato de me ajudar a aprender novas habilidades, é claro.✨</p>
 
 ![Badge](https://img.shields.io/badge/Site-MadsonAlan-%237159c1?style=for-the-badge&logo=ghost)
-[![GitHub forks](https://img.shields.io/github/forks/Naereen/StrapDown.js.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/network/)
-[![GitHub stars](https://img.shields.io/github/stars/Naereen/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/stargazers/)
-[![Only 32 Kb](https://badge-size.herokuapp.com/Naereen/StrapDown.js/master/strapdown.min.js)](https://github.com/Naereen/StrapDown.js/blob/master/strapdown.min.js)
-[![Naereen's top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Naereen&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
-[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+
+[![GitHub forks](https://img.shields.io/github/forks/MadsonAlan/my-website-next.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/network/)
+
+[![GitHub stars](https://img.shields.io/github/stars/MadsonAlan/my-website-next.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/stargazers/)
+
+[![Only 32 Kb](https://badge-size.herokuapp.com/MadsonAlan/my-website-next/master/strapdown.min.js)](https://github.com/MadsonAlan/my-website-next/blob/master/strapdown.min.js)
+
+[![Naereen's top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Naereen&theme=blue-green)](https://github.com/MadsonAlan/my-website-next)
+
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/MadsonAlan/my-website-next/)
