@@ -36,7 +36,8 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev
 
-# A partir daí você só precisa alterar o meu nome para o seunome de usuário do github no arquivo .env do projeto e ele se moldará ao seu perfil
+# A partir daí você só precisa alterar o meu nome 
+# no arquivo .env do projeto e ele se moldará ao seu perfil
 ```
 
 ### 🛠 Tecnologias
@@ -58,5 +59,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Feito com ❤️ por Madson Alan 👋🏽 Entre em contato!
 
-[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/madson-alan-vitorino-sousa-550040158/)](https://www.linkedin.com/in/madson-alan-vitorino-sousa-550040158/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Madson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/madson-alan-vitorino-sousa-550040158/)](https://www.linkedin.com/in/madson-alan-vitorino-sousa-550040158/) 
 [![Gmail Badge](https://img.shields.io/badge/-contato.madsonalan@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:contato.madsonalan@gmail.com)](mailto:contato.madsonalan@gmail.com)
