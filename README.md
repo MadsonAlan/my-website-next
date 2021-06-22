@@ -6,8 +6,12 @@ ou
 <p align="center">✨Este projeto possui objetivo de auxiliar Devs na produção de seu site pessoal de forma simplificada e automatizada. Tive desejo de criar meu site e pensei: "porque não permitir outros devs também pudessem criar o seu?". Assim esse projeto nasceu.
     Além do fato de me ajudar a aprender novas habilidades, é claro.✨</p>
 
-![Badge](https://img.shields.io/badge/Site-MadsonAlan-%237159c1?style=for-the-badge&logo=ghost)[![GitHub forks](https://img.shields.io/github/forks/MadsonAlan/my-website-next.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/network/)[![GitHub stars](https://img.shields.io/github/stars/MadsonAlan/my-website-next.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/stargazers/)[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/MadsonAlan/my-website-next/)
+[![GitHub forks](https://img.shields.io/github/forks/MadsonAlan/my-website-next.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/network/) | [![GitHub stars](https://img.shields.io/github/stars/MadsonAlan/my-website-next.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/MadsonAlan/my-website-next/stargazers/) | [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/MadsonAlan/my-website-next/)
 
+
+<h4 align="center"> 
+	🚧  Versão 2 🚀 Em construção...  🚧
+</h4>
 
 <p align="center">
  <a href="#comousar">Como usar</a> • 
