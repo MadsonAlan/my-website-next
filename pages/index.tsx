@@ -23,7 +23,7 @@ function Home() {
   let contador = 0
   const languages = ['C#', 'Dart', 'Javascript']
 
-  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,20 +33,25 @@ function Home() {
       </Head>
 
       <main className={styles.main}>
+        <div className={styles.topItens}>
+          <img className={styles.avatar}
+            // src={userData.avatar_url} 
+            src="https://avatars.githubusercontent.com/u/45024414?v=4"
+          />
+          <div className={styles.leftTexts}>
+            <h1 className={styles.title}>
+              Madson Alan
+              {/* {userShortName} */}
+            </h1>
 
-        <img className={styles.avatar}
-          // src={userData.avatar_url} 
-          src="https://avatars.githubusercontent.com/u/45024414?v=4"
-        />
-        <h1 className={styles.title}>
-          Madson Alan
-          {/* {userShortName} */}
-        </h1>
+            <p className={styles.description}>
+              Programador full stack | Web e mobile | Amante de front-end e novas tecnologias
+              {/* {userData.bio} */}
+            </p>
+          </div>
 
-        <p className={styles.description}>
-          Programador full stack | Web e mobile | Amante de front-end e novas tecnologias
-          {/* {userData.bio} */}
-        </p>
+        </div>
+
         <p className={styles.languages}>
           Possuo experiência com:
         </p>
@@ -58,8 +63,8 @@ function Home() {
               contador++
               return (
                 <div className={styles.card}>
-                  <Link href={`/tech/${contador.toString()}`} 
-                  as={`/tech/${lang}`}
+                  <Link href={`/tech/${contador.toString()}`}
+                    as={`/tech/${lang}`}
                   >
                     <a >
                       <h3>{lang}📚 &rarr;</h3>
@@ -73,7 +78,7 @@ function Home() {
         </div>
       </main>
 
-      <FooterPage/>
+      <FooterPage />
     </div>
   )
 }

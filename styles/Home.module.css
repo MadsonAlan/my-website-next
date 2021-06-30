@@ -18,7 +18,7 @@
 
 
 .avatar{
-  height: 13rem;
+  height: 10rem;
   border-radius: 50%
 }
 
@@ -57,13 +57,21 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+
+
+  background: rgba( 229, 229, 229, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #4034BC;
+  border-color: #4034BC;
 }
 
 .card h3 {
@@ -87,4 +95,19 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+
+.topItens {
+
+  display: flex;
+  align-items: center;
+}
+
+.languages {
+  padding-top: 2rem;
+}
+.leftTexts {
+  padding-left: 2rem;
+  max-width: 22rem;
 }
