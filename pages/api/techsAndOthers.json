@@ -1,0 +1,38 @@
+[
+    {
+        "name":"Next.js",
+        "image":"https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
+        "url":"https://nextjs.org/"
+    },
+    {
+        "name":"React.js",
+        "image":"https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg",
+        "url":"https://pt-br.reactjs.org/"
+    },
+    {
+        "name":"React Native",
+        "image":"https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
+        "url":"https://reactnative.dev/"
+    },
+    {
+        "name":"Flutter",
+        "image":"https://www.vectorlogo.zone/logos/flutterio/flutterio-ar21.svg",
+        "url":"https://flutter.dev/"
+    },
+    {
+        "name":"Git",
+        "image":"https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg",
+        "url":"https://git-scm.com/"
+    },
+    {
+        "name":"Github",
+        "image":"https://www.vectorlogo.zone/logos/github/github-ar21.svg",
+        "url":"https://github.com/"
+    },
+    {
+        "name":"Node.js",
+        "image":"https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg",
+        "url":"https://nodejs.org/"
+    }
+
+]

@@ -11,6 +11,9 @@ import UserProfile from '../components/profileGithub/userProfile'
 import FooterPage from '../components/footerPage/footerPage'
 const FilterArray = import('../config/uniqueValueArray')
 
+
+import techsAndOthers from '../pages/api/techsAndOthers.json'
+
 // interface Props {
 //   userData: GithubDataUser,
 //   repoData: GithubProject[],
@@ -20,62 +23,83 @@ const FilterArray = import('../config/uniqueValueArray')
 // function Home({ userData, repoData, languages }: Props) {
 function Home() {
 
-  let contador = 0
   const languages = ['C#', 'Dart', 'Javascript']
 
-
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Home | Madson Alan</title>
         {/* <title>Home | {userShortName}</title> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
+      <section className={styles.sectionTopItens}>
         <div className={styles.topItens}>
-          <img className={styles.avatar}
-            // src={userData.avatar_url} 
-            src="https://avatars.githubusercontent.com/u/45024414?v=4"
-          />
-          <div className={styles.leftTexts}>
-            <h1 className={styles.title}>
-              Madson Alan
-              {/* {userShortName} */}
-            </h1>
 
-            <p className={styles.description}>
-              Programador full stack | Web e mobile | Amante de front-end e novas tecnologias
-              {/* {userData.bio} */}
-            </p>
+          <div className={styles.container}>
+            <div>
+              <h2>
+                Madson Alan
+                {/* {userShortName} */}
+              </h2>
+
+              <p >
+                Programador full stack | Web e mobile | Amante de front-end e novas tecnologias
+                {/* {userData.bio} */}
+              </p>
+            </div>
+            <img
+              // src={userData.avatar_url} 
+              src="https://avatars.githubusercontent.com/u/45024414?v=4"
+            />
           </div>
-
         </div>
+      </section>
+      <main className={styles.main}>
 
-        <p className={styles.languages}>
-          Possuo experiência com:
-        </p>
         {/* <UserProfile key='1' userData={userData} userShortName={userShortName} /> */}
-
-        <div className={styles.grid}>
-          {
-            languages.map(lang => {
-              contador++
-              return (
-                <div className={styles.card}>
-                  <Link href={`/tech/${contador.toString()}`}
-                    as={`/tech/${lang}`}
+        <section className={styles.gridTechs}>
+          <h3 className={styles.languages}>
+            Possuo experiência com as linguagens:
+          </h3>
+          <div className={styles.gridCards}>
+            {
+              languages.map((lang, index) => {
+                return (
+                  <Link href={`/tech/${index.toString()}`}
                   >
                     <a >
-                      <h3>{lang}📚 &rarr;</h3>
-                      <p>Clique e veja meus projetos usando {lang}</p>
+                      <div className={styles.card}>
+                        <h3>{lang}📚 &rarr;</h3>
+                        <p>Clique no card e veja o que já desenvolvi usando {lang}</p>
+                        <div className={styles.dataProjects}>
+                          <p>2 projetos</p>
+                        </div>
+                      </div>
                     </a>
                   </Link>
-                </div>
-              )
-            })
-          }
-        </div>
+                )
+              })
+            }
+          </div>
+        </section>
+        <section className={styles.techsAndOthers}>
+          <h3 className={styles.languages}>
+          Também sei utilizar:
+          </h3>
+          <div className={styles.slider}>
+            <div className={styles.slideTrack}>
+              {techsAndOthers.map(item => {
+                return (
+                  <div key={item.image} className={styles.slide}>
+                    <a href={item.url}>
+                      <img src={item.image} />
+                    </a>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
       </main>
 
       <FooterPage />

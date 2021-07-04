@@ -12,7 +12,7 @@ interface Props {
 function ProjectsOfTech({ lang, repoData }: Props) {
 
 
-    console.log(lang, repoData);
+    // console.log(lang, repoData);
 
     return (
         <div>
@@ -21,7 +21,28 @@ function ProjectsOfTech({ lang, repoData }: Props) {
                 {/* <title>Home | {userShortName}</title> */}
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <section className={styles.sectionTopItens}>
+                <div className={styles.topItens}>
 
+                    <div className={styles.container}>
+                        <div>
+                            <h2>
+                                Madson Alan
+                                {/* {userShortName} */}
+                            </h2>
+
+                            <p >
+                                Programador full stack | Web e mobile | Amante de front-end e novas tecnologias
+                                {/* {userData.bio} */}
+                            </p>
+                        </div>
+                        <img
+                            // src={userData.avatar_url} 
+                            src="https://avatars.githubusercontent.com/u/45024414?v=4"
+                        />
+                    </div>
+                </div>
+            </section>
             <main className={styles.main}>
 
                 <img className={styles.avatar}
@@ -38,7 +59,7 @@ function ProjectsOfTech({ lang, repoData }: Props) {
                             <h3 className={styles.code}>{lang ? lang : 'outros'}</h3>
                             <div className={styles.grid}>
                                 {repoData?.map((projeto) => {
-                                    console.log(projeto);
+                                    // console.log(projeto);
 
                                     if (lang === projeto.language) {
                                         return (<a key={projeto.id} href={projeto.html_url} className={styles.card}>
@@ -70,9 +91,9 @@ function ProjectsOfTech({ lang, repoData }: Props) {
 export async function getStaticPaths() {
     let contador = 0
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        // ,{
-        //   headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        // }
+        , {
+            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        }
     )
     const dataRepos: GithubProject[] = await rep.data
 
@@ -100,9 +121,9 @@ export async function getStaticProps({ params }) {
 
 
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        // ,{
-        //   headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        // }
+        , {
+            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        }
     )
     const dataRepos: GithubProject[] = await rep.data
 
@@ -115,7 +136,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             repoData: dataRepos,
-            lang: languages[(params.id - 1)]
+            lang: languages[params.id]
         }, // will be passed to the page component as props
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
