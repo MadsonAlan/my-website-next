@@ -33,6 +33,11 @@
         "name":"Node.js",
         "image":"https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg",
         "url":"https://nodejs.org/"
+    },
+    {
+        "name":"SAP Busness One",
+        "image":"https://www.vectorlogo.zone/logos/sap/sap-ar21.svg",
+        "url":"https://www.sap.com/"
     }
 
 ]

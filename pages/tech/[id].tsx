@@ -3,15 +3,19 @@ import Head from "next/head"
 import React from "react"
 import { GithubProject } from "../../config/interfaces"
 import styles from '../../styles/techs.module.css'
+import { useRouter } from 'next/router'
 
 const FilterArray = import('../../config/uniqueValueArray')
+
+
+import techsAndOthers from '../../pages/api/techsAndOthers.json'
+import FooterPage from "../../components/footerPage/footerPage"
 interface Props {
     repoData: GithubProject[],
     lang: string
 }
 function ProjectsOfTech({ lang, repoData }: Props) {
-
-
+    const router = useRouter()
     // console.log(lang, repoData);
 
     return (
@@ -45,45 +49,53 @@ function ProjectsOfTech({ lang, repoData }: Props) {
             </section>
             <main className={styles.main}>
 
-                <img className={styles.avatar}
-                    // src={userData.avatar_url} 
-                    src="https://avatars.githubusercontent.com/u/45024414?v=4"
-                />
-                <h1 className={styles.title}>
-                    Madson Alan
-                    {/* {userShortName} */}
-                </h1>
-                <div className={styles.grid}>
-                    <div className={styles.grid}>
-                        <div className={styles.cardLang}>
-                            <h3 className={styles.code}>{lang ? lang : 'outros'}</h3>
-                            <div className={styles.grid}>
-                                {repoData?.map((projeto) => {
-                                    // console.log(projeto);
+                {/* <UserProfile key='1' userData={userData} userShortName={userShortName} /> */}
+                <section className={styles.gridTechs}>
+                    <h3 className={styles.languages}>
+                        Esses foram os projetos que desenvolvi usando {lang}
+                    </h3>
+                    <div className={styles.gridCards}>
+                        {repoData?.map((projeto) => {
+                            // console.log(projeto);
 
-                                    if (lang === projeto.language) {
-                                        return (<a key={projeto.id} href={projeto.html_url} className={styles.card}>
-                                            <h3>{projeto.name} &rarr;</h3>
-                                            <h4>{projeto.language ? projeto.language : 'outros'}</h4>
-                                            <p>{projeto.description?.substr(0, 200)}...</p>
-                                        </a>)
-                                    }
-                                })}
-                            </div>
+                            if (lang === projeto.language) {
+                                return (
+                                    <a key={projeto.id} href={projeto.html_url} className={styles.card}>
+                                        <h3>{projeto.name} &rarr;</h3>
+                                        <h4>{projeto.language ? projeto.language : 'outros'}</h4>
+                                        <p>{projeto.description?.substr(0, 200)}...</p>
+                                    </a>
+                                )
+                            }
+                        })}
+                    </div>
+                    <div className={styles.buttonArea}>
+                        <div className={styles.buttonReturn} onClick={() => router.back()}>
+                            <p>Voltar</p>
                         </div>
                     </div>
-                </div>
+                </section>
+                <section className={styles.techsAndOthers}>
+                    <h3 className={styles.languages}>
+                        Também sei utilizar:
+                    </h3>
+                    <div className={styles.slider}>
+                        <div className={styles.slideTrack}>
+                            {techsAndOthers.map(item => {
+                                return (
+                                    <div key={item.image} className={styles.slide}>
+                                        <a href={item.url}>
+                                            <img src={item.image} />
+                                        </a>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </section>
             </main>
 
-            <footer className={styles.footer}>
-                {/* <a
-    href={userData.html_url}
-    target="_blank"
-    rel="Github do Madson"
-  > */}
-                {/* Desenvolvido por {userShortName} */}
-                {/* </a> */}
-            </footer>
+            <FooterPage />
         </div>
     )
 }
@@ -91,9 +103,9 @@ function ProjectsOfTech({ lang, repoData }: Props) {
 export async function getStaticPaths() {
     let contador = 0
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        , {
-            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        }
+        // , {
+        //     headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        // }
     )
     const dataRepos: GithubProject[] = await rep.data
 
@@ -116,14 +128,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log(params.id);
+    // console.log(params.id);
 
 
 
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        , {
-            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        }
+        // , {
+        //     headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        // }
     )
     const dataRepos: GithubProject[] = await rep.data
 
@@ -141,7 +153,7 @@ export async function getStaticProps({ params }) {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: 60 * 60 * 24 * 30, // In seconds
+        revalidate: 60 * 60 * 24 * 15, // In seconds
     }
 }
 

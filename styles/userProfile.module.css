@@ -1,39 +1,23 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  width: 90%;
+  max-width: 980px;
+
+  margin: auto;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-.title a {
-    color: #0070f3;
-    text-decoration: none;
-  }
-  
-  .title a:hover,
-  .title a:focus,
-  .title a:active {
-    text-decoration: underline;
-  }
-  
-  .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 3rem;
-  }
-  
-  .title,
-  .description {
-    text-align: center;
-  }
-  
-  .description {
-    /* max-width: 22rem; */
-    line-height: 1.5;
-    font-size: 1.2rem;
-  }
-  
-  .language{
-    font-size: 0.5rem;
-  }
+
+
+.container p {
+  color: #f1f3f8;
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+  margin: 10px 0px 0px;
+  width: 90%;
+}
+
+.container img {
+  height: 22rem;
+  width: 22rem;
+  border-radius: 50%;
+}
