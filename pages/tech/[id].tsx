@@ -101,7 +101,6 @@ function ProjectsOfTech({ lang, repoData }: Props) {
 }
 
 export async function getStaticPaths() {
-    let contador = 0
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
         // , {
         //     headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
@@ -114,10 +113,9 @@ export async function getStaticPaths() {
         langProj.push(projeto.language)
     })
     const languages = (await FilterArray).default(dataRepos)
-    const paths = languages.map((lang) => {
-        contador++
+    const paths = languages.map((lang, index) => {
         return ({
-            params: { id: contador.toString() }
+            params: { id: index.toString() }
         }
         )
     })
