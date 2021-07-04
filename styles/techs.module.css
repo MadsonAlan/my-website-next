@@ -110,8 +110,32 @@ CARDS
   width: 90%;
 }
 
+.buttonArea{
+  width: 100%;
+  text-align: -webkit-center;
+}
 
+.buttonReturn{
+  cursor: pointer;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  width: 12rem;
+  background-color: #5E9FFD;
+  border-radius: 1.5em;
+  transition: transform .45s ease, background .45s ease;
+}
 
+.buttonReturn p{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #F1F3F8;
+}
+.buttonReturn:hover {
+  transform: translateY(-7px);
+}
 
 /* ===============
 TECHS AND OTHERS SECTION
