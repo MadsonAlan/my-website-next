@@ -8,8 +8,6 @@ import { useRouter } from 'next/router'
 
 const FilterArray = import('../../config/uniqueValueArray')
 
-const puppeteer = require('puppeteer');
-
 
 import techsAndOthers from '../../pages/api/techsAndOthers.json'
 import FooterPage from "../../components/footerPage/footerPage"
