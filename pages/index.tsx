@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Cookies from 'js-cookie'
 import axios from 'axios'
 import React from 'react'
 import Link from 'next/link'
@@ -56,6 +55,18 @@ function Home({ userData, repoData, languages }: Props) {
         </div>
       </section>
       <main className={styles.main}>
+        <section className={styles.myProjects}>
+          <h3>Meus projetos já publicados</h3>
+          <div>
+            <a href="https://moveit-madsonalan.vercel.app/" target="_blank">
+            <img src='./projects/ScreenshotProjectRunning.jpg' alt="moveit project"/>
+            <div>
+              <strong>Moveit</strong>
+              <p>Aplicação voltada para exercícios durante o periodo de trabalho.</p>
+            </div>
+            </a>
+          </div>
+        </section>
 
         {/* <UserProfile key='1' userData={userData} userShortName={userShortName} /> */}
         <section className={styles.gridTechs}>
@@ -67,7 +78,7 @@ function Home({ userData, repoData, languages }: Props) {
               languages.map((lang, index) => {
                 let qtdProjects = repoData.filter(item => {if(item.language == lang){ return item}})
                 return (
-                  <Link href={`/tech/${index.toString()}`}
+                  <Link key={index} href={`/tech/${index.toString()}`}
                   >
                     <a >
                       <div className={styles.card}>

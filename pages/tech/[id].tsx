@@ -5,7 +5,10 @@ import { GithubProject } from "../../config/interfaces"
 import styles from '../../styles/techs.module.css'
 import { useRouter } from 'next/router'
 
+
 const FilterArray = import('../../config/uniqueValueArray')
+
+const puppeteer = require('puppeteer');
 
 
 import techsAndOthers from '../../pages/api/techsAndOthers.json'
@@ -143,6 +146,7 @@ export async function getStaticProps({ params }) {
     })
     const languages = (await FilterArray).default(dataRepos)
 
+
     return {
         props: {
             repoData: dataRepos,
@@ -151,7 +155,7 @@ export async function getStaticProps({ params }) {
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 10 seconds
-        revalidate: 60 * 60 * 24 * 15, // In seconds
+        revalidate: 60 * 60 * 24 * 7, // In seconds
     }
 }
 
