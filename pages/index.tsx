@@ -12,6 +12,7 @@ const FilterArray = import('../config/uniqueValueArray')
 
 
 import techsAndOthers from '../pages/api/techsAndOthers.json'
+import myProjects from '../pages/api/myProjects.json'
 
 interface Props {
   userData: GithubDataUser,
@@ -20,7 +21,7 @@ interface Props {
 }
 
 function Home({ userData, repoData, languages }: Props) {
-// function Home() {
+  // function Home() {
 
   // const languages = ['C#', 'Dart', 'Javascript']
   let nomeHead = userData.name.split(' ')
@@ -48,8 +49,8 @@ function Home({ userData, repoData, languages }: Props) {
               </p>
             </div>
             <img
-              src={userData.avatar_url} 
-              // src="https://avatars.githubusercontent.com/u/45024414?v=4"
+              src={userData.avatar_url}
+            // src="https://avatars.githubusercontent.com/u/45024414?v=4"
             />
           </div>
         </div>
@@ -57,15 +58,23 @@ function Home({ userData, repoData, languages }: Props) {
       <main className={styles.main}>
         <section className={styles.myProjects}>
           <h3>Meus projetos já publicados</h3>
+
           <div>
-            <a href="https://moveit-madsonalan.vercel.app/" target="_blank">
-            <img src='./projects/ScreenshotProjectRunning.jpg' alt="moveit project"/>
-            <div>
-              <strong>Moveit</strong>
-              <p>Aplicação voltada para exercícios durante o periodo de trabalho.</p>
-            </div>
-            </a>
+            {
+              myProjects.map((project) => {
+                return (
+                  <a href={project.address} target="_blank">
+                    <img src={project.screenshot} alt="moveit project" />
+                    <div>
+                      <strong>{project.tittle}</strong>
+                      <p>{project.description}</p>
+                    </div>
+                  </a>
+                )
+              })
+            }
           </div>
+
         </section>
 
         {/* <UserProfile key='1' userData={userData} userShortName={userShortName} /> */}
@@ -76,7 +85,7 @@ function Home({ userData, repoData, languages }: Props) {
           <div className={styles.gridCards}>
             {
               languages.map((lang, index) => {
-                let qtdProjects = repoData.filter(item => {if(item.language == lang){ return item}})
+                let qtdProjects = repoData.filter(item => { if (item.language == lang) { return item } })
                 return (
                   <Link key={index} href={`/tech/${index.toString()}`}
                   >
@@ -85,7 +94,7 @@ function Home({ userData, repoData, languages }: Props) {
                         <h3>{lang} &rarr;</h3>
                         <p>Clique no card e veja o que já desenvolvi usando {lang}</p>
                         <div className={styles.dataProjects}>
-                          <p>{qtdProjects.length} {qtdProjects.length>1?"projetos":"projeto"}</p>
+                          <p>{qtdProjects.length} {qtdProjects.length > 1 ? "projetos" : "projeto"}</p>
                         </div>
                       </div>
                     </a>
