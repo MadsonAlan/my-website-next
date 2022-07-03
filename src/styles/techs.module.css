@@ -89,7 +89,7 @@ CARDS
   max-width: 20.75em;
   min-height: 20.75em;
   overflow: hidden;
-  border-radius: 1.5em;
+  border-radius: 8px;
   text-decoration: none;
   background: #fff;
   margin: 1em;

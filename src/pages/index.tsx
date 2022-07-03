@@ -8,11 +8,12 @@ import ProjectsOfTech from '../components/projectsGithub/projectsOfTech'
 import { GithubDataUser, GithubProject } from '../config/interfaces'
 import UserProfile from '../components/profileGithub/userProfile'
 import FooterPage from '../components/footerPage/footerPage'
+import {MdFolder} from 'react-icons/md'
 const FilterArray = import('../config/uniqueValueArray')
 
 
-import techsAndOthers from '../pages/api/techsAndOthers.json'
-import myProjects from '../pages/api/myProjects.json'
+import techsAndOthers from './api/techsAndOthers.json'
+import myProjects from './api/myProjects.json'
 
 interface Props {
   userData: GithubDataUser,
@@ -48,7 +49,7 @@ function Home({ userData, repoData, languages }: Props) {
                 {userData.bio}
               </p>
             </div>
-            <img
+            <img alt='Foto Perfil Github'
               src={userData.avatar_url}
             // src="https://avatars.githubusercontent.com/u/45024414?v=4"
             />
@@ -66,7 +67,7 @@ function Home({ userData, repoData, languages }: Props) {
                   <a href={project.address} target="_blank">
                     <img src={project.screenshot} alt="moveit project" />
                     <div>
-                      <strong>{project.tittle}</strong>
+                      <span>{project.tittle}</span>
                       <p>{project.description}</p>
                     </div>
                   </a>
@@ -80,7 +81,7 @@ function Home({ userData, repoData, languages }: Props) {
         {/* <UserProfile key='1' userData={userData} userShortName={userShortName} /> */}
         <section className={styles.gridTechs}>
           <h3 className={styles.languages}>
-            Possuo experiência com as linguagens:
+            Possuo experiência com:
           </h3>
           <div className={styles.gridCards}>
             {
@@ -91,11 +92,12 @@ function Home({ userData, repoData, languages }: Props) {
                   >
                     <a >
                       <div className={styles.card}>
-                        <h3>{lang} &rarr;</h3>
-                        <p>Clique no card e veja o que já desenvolvi usando {lang}</p>
                         <div className={styles.dataProjects}>
-                          <p>{qtdProjects.length} {qtdProjects.length > 1 ? "projetos" : "projeto"}</p>
+                        <h3><MdFolder/></h3>
+                        <h3>{lang??'Outros'}</h3>
+                        <p>{qtdProjects.length} {qtdProjects.length > 1 ? "projetos" : "projeto"}</p>
                         </div>
+                        <p className={styles.description}>Clique no card e veja {lang ?`o que já desenvolvi usando ${lang}`:'outros projetos no meu github'}</p>
                       </div>
                     </a>
                   </Link>
@@ -114,7 +116,7 @@ function Home({ userData, repoData, languages }: Props) {
                 return (
                   <div key={item.image} className={styles.slide}>
                     <a href={item.url}>
-                      <img src={item.image} />
+                      <img alt='Tecnologias' src={item.image} />
                     </a>
                   </div>
                 )
@@ -132,7 +134,11 @@ function Home({ userData, repoData, languages }: Props) {
 
 export async function getStaticProps() {
 
-  const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`)
+  const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
+  , {
+    headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+  }
+  )
   const dataRepos: GithubProject[] = await rep.data
 
   let langProj: string[] = []
@@ -142,7 +148,11 @@ export async function getStaticProps() {
   const languages = (await FilterArray).default(dataRepos)
 
 
-  const res = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}`)
+  const res = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}`
+  , {
+    headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+  }
+  )
 
   const githubData = await res.data
   // const githubData: GithubDataUser = await res.data

@@ -5,11 +5,13 @@ import { GithubProject } from "../../config/interfaces"
 import styles from '../../styles/techs.module.css'
 import { useRouter } from 'next/router'
 
+import {GoMarkGithub} from 'react-icons/go'
+
 
 const FilterArray = import('../../config/uniqueValueArray')
 
 
-import techsAndOthers from '../../pages/api/techsAndOthers.json'
+import techsAndOthers from '../api/techsAndOthers.json'
 import FooterPage from "../../components/footerPage/footerPage"
 interface Props {
     repoData: GithubProject[],
@@ -41,7 +43,7 @@ function ProjectsOfTech({ lang, repoData }: Props) {
                                 {/* {userData.bio} */}
                             </p>
                         </div>
-                        <img
+                        <img alt="Perfil github"
                             // src={userData.avatar_url} 
                             src="https://avatars.githubusercontent.com/u/45024414?v=4"
                         />
@@ -62,10 +64,11 @@ function ProjectsOfTech({ lang, repoData }: Props) {
                             if (lang === projeto.language) {
                                 return (
                                     <a key={projeto.id} href={projeto.html_url} className={styles.card}>
-                                        <h3>{projeto.name} &rarr;</h3>
+                                        <h3><GoMarkGithub/></h3>
+                                        <h3>{projeto.name}</h3>
                                         <h4>{projeto.language ? projeto.language : 'outros'}</h4>
                                         <p>{projeto.description?.substr(0, 200)}...</p>
-                                    </a>
+                                    </a> 
                                 )
                             }
                         })}
@@ -86,7 +89,7 @@ function ProjectsOfTech({ lang, repoData }: Props) {
                                 return (
                                     <div key={item.image} className={styles.slide}>
                                         <a href={item.url}>
-                                            <img src={item.image} />
+                                            <img alt="Tecnologias" src={item.image} />
                                         </a>
                                     </div>
                                 )
@@ -103,9 +106,9 @@ function ProjectsOfTech({ lang, repoData }: Props) {
 
 export async function getStaticPaths() {
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        // , {
-        //     headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        // }
+        , {
+            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        }
     )
     const dataRepos: GithubProject[] = await rep.data
 
@@ -132,9 +135,9 @@ export async function getStaticProps({ params }) {
 
 
     const rep = await axios.get(`https://api.github.com/users/${process.env.USER_GITHUB}/repos`
-        // , {
-        //     headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
-        // }
+        , {
+            headers: { Authorization: `Bearer ${process.env.API_TOKEN}` }
+        }
     )
     const dataRepos: GithubProject[] = await rep.data
 

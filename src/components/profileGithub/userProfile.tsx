@@ -21,7 +21,7 @@ function UserProfile({ userData, children }) {
                     {userData.bio}
                 </p>
             </div>
-            <img className={styles.avatar}
+            <img alt="Imagem do perfil github" className={styles.avatar}
                 src={userData.avatar_url}
             />
         </div>
